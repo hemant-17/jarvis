@@ -5,6 +5,7 @@ import wikipedia
 import webbrowser
 import os
 import smtplib
+import sys
 
 
 engine = pyttsx3.init('sapi5')
@@ -27,7 +28,7 @@ def wishMe():
     else:
         speak("Good Evening!")
 
-    speak("Iam jarvis Sir . Please tell me how may i help you ")
+    speak("I am jarvis Sir, speed three hundred tera bytes per second . Please tell me how may i help you ")
 
 #it takes microphone input from user and returns string output
 def takeCommand():
@@ -88,7 +89,7 @@ if __name__ =="__main__":
             os.startfile(os.path.join(music_dir,songs[3]))
 
         elif ' the time' in query:
-            strTime = datetime.datetime.now().strftime("%H:%M:%S")
+            strTime = datetime.datetime.now().strftime("%H Hours %M minutes and %S")
             speak(f"Sir , The time is {strTime}")
 
         elif 'open code' in query:
@@ -105,3 +106,9 @@ if __name__ =="__main__":
             except Exception as e:
                 print(e)
                 speak("Sorry Sir email has not been sent ")
+        elif 'date' in query:
+            strDate = datetime.datetimenow().date().strftime("%d-%m-%y")
+            speak(f"Sir, today's date is {strDate}")
+        elif 'exit' in query:
+            speak("Thank you for using me sir, have a good day")
+            sys.exit()
